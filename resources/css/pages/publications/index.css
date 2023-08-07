@@ -1,0 +1,124 @@
+  .publications {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  
+  .publications-container {
+    padding-top: 70px;
+    padding-right: 72px;
+    padding-bottom: 80px;
+    padding-left: 80px;
+    background: #FFFFFF;
+    border-radius: 8px;
+  }
+  
+  .publications-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  
+  .publications h1 {
+    padding: 0 !important;
+  }
+  
+  .publications-navigation {
+    display: flex;
+    align-items: center;
+    height: 52px;
+    padding: 6px;
+    border: 0.5px solid #E6E6E6;
+    border-radius: 12px;
+  }
+  
+  .publications-navigation li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .publications-navigation-link {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 88px;
+    height: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    border-radius: 8px;
+  }
+  
+  .publications-navigation-link.current {
+    font-weight: 600;
+    background: radial-gradient(269.69% 100% at 50% 100%, rgba(230, 36, 43, 0.2) 0%, rgba(239, 105, 27, 0.2) 37.5%, rgba(255, 221, 0, 0.2) 100%), #FFDD00;
+    box-shadow: 0px 2px 8px rgba(29, 29, 29, 0.25);
+  }
+  
+  .publications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0px;
+    margin-top: 40px;
+    margin-bottom: 48px;
+  }
+  
+  .publications-list li {
+    display: flex;
+  }
+  /*! => adaptive */
+  
+  @media screen and (max-width: 1439px) {
+    /** desktop */
+  }
+  
+  @media screen and (max-width: 1199px) {
+    /** desktop */
+  }
+  
+  @media screen and (max-width: 991px) {
+    /** tablet */
+    .publications-container {
+      padding-top: 20px;
+      padding-right: 24px;
+      padding-bottom: 32px;
+      padding-left: 24px;
+    }
+    .publications-list {
+      margin-top: 20px;
+      margin-bottom: 32px;
+      gap: 16px 0px;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    /** tablet */
+  }
+  
+  @media screen and (max-width: 575px) {
+    /** mobile */
+    .publications-navigation,
+    .publications-navigation li,
+    .publications-navigation-link {
+      flex-grow: 1;
+    }
+    .publications-list {
+      margin-top: 32px;
+    }
+  }
+  
+  @media screen and (max-width: 389px) {
+    /** mobile */
+    .publications-container {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+    .publications-navigation {
+      overflow-x: scroll;
+      max-width: 100%;
+    }
+  }
+  /*! adaptive <= */

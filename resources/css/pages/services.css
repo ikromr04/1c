@@ -1,0 +1,219 @@
+.services-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  padding-top: 80px;
+  padding-right: 64px;
+  padding-bottom: 80px;
+  padding-left: 64px;
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+
+.services-heading {
+  max-width: max-content;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.services-subheading {
+  max-width: 400px;
+  margin-bottom: 32px;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+  grid-gap: 20px 20px;
+  margin-bottom: 48px;
+}
+
+.services-item {
+  position: relative;
+  z-index: 0;
+  min-height: 378px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px;
+  gap: 16px 0;
+  background: #F5F5F5;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.services-item:hover {
+  color: #fff;
+  background: radial-gradient(269.69% 100% at 50% 100%, rgba(230, 36, 43, 0.2) 0%, rgba(239, 105, 27, 0.2) 37.5%, rgba(255, 221, 0, 0.2) 100%), linear-gradient(0deg, #D71920, #D71920), linear-gradient(0deg, #FFFFFF, #FFFFFF), #F5F5F5;
+  box-shadow: 0px 4px 16px rgba(230, 36, 43, 0.5);
+}
+
+.services-item::before {
+  content: "";
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: radial-gradient(269.69% 100% at 50% 100%, rgba(230, 36, 43, 0.2) 0%, rgba(239, 105, 27, 0.2) 37.5%, rgba(255, 221, 0, 0.2) 100%), linear-gradient(0deg, #FFDD00, #FFDD00), #C4C4C4;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.services-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/service icons/bg.png");
+  background-repeat: no-repeat;
+}
+
+.services-item:first-child:before {
+  background-image: url("../img/service icons/first.png");
+}
+
+.services-item:nth-child(2):before {
+  background-image: url("../img/service icons/second.png");
+}
+
+.services-item:nth-child(3):before {
+  background-image: url("../img/service icons/third.png");
+}
+
+.services-item:nth-child(4):before {
+  background-image: url("../img/service icons/fourth.png");
+}
+
+.services-item:nth-child(5):before {
+  background-image: url("../img/service icons/fifth.png");
+}
+
+.services-item:last-child:before {
+  background-image: url("../img/service icons/sixth.png");
+}
+
+.services-item dt {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.services-item dd {
+  white-space: pre;
+  text-align: center;
+}
+
+.be-familiar {
+  max-width: max-content;
+  align-self: center;
+  margin-bottom: 16px;
+}
+
+.services-download-link {
+  position: relative;
+  width: 374px;
+  align-self: center;
+  margin-bottom: 8px;
+}
+
+.services-valid-date {
+  text-decoration-line: underline;
+  color: #858585;
+  white-space: pre;
+  align-self: center;
+  text-align: center;
+}
+
+
+/*! => adaptive */
+
+
+/* desktop */
+
+@media screen and (max-width: 1439px) {
+  .services-container {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .services-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* tablet */
+
+@media screen and (max-width: 991px) {
+  .services-container {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-top: 32px;
+    padding-right: 144px;
+    padding-bottom: 32px;
+    padding-left: 144px;
+  }
+  .services-heading {
+    margin-bottom: 8px;
+  }
+  .services-subheading {
+    margin-bottom: 16px;
+  }
+  .services-list {
+    grid-gap: 16px;
+    grid-template-columns: 1fr;
+    margin-bottom: 32px;
+  }
+  .services-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px;
+    min-height: 320px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .services-container {
+    padding-right: 80px;
+    padding-left: 80px;
+  }
+  .services-download-link {
+    width: 100%;
+  }
+}
+
+
+/* mobile */
+
+@media screen and (max-width: 575px) {
+  .services-container {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+  .services-item {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .services-container {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .services-item {
+    padding: 16px;
+  }
+  .services-item dd {
+    white-space: normal;
+  }
+}
+
+
+/*! adaptive <= */
