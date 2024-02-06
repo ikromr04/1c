@@ -71,6 +71,7 @@
     <div><img src="https://mc.yandex.ru/watch/88518976" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
+  {!! htmlScriptTagJsApi() !!}
 </head>
 
 <body oncontextmenu="return false">
