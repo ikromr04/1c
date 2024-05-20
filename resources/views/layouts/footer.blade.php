@@ -35,7 +35,10 @@
         <div class="footer-contacts">
           <dt>{{ $footer['contacts-heading'] }}</dt>
           <dd>
-            <a class="header-grid-link" href="tel:{{ str_replace(' ', '', $header['phone']) }}">{{ $header['phone'] }}</a>
+            <a class="header-grid-link" href="tel:{{ str_replace(' ', '', strip_tags($header['phone'])) }}">{!! $header['phone'] !!}</a>
+          </dd>
+          <dd>
+            <a class="header-grid-link" href="tel:+992988992211">+992 988 99 22 11</a>
           </dd>
           {{-- <dd>
             <a class="header-grid-link" href="mailto:{{str_replace(' ', '', $header['email'])}}">{{$header['email']}}</a>

@@ -28,7 +28,7 @@
             </dd>
           @endforeach
           <dd>
-            <a class="header-grid-link" href="{{ route('admin.vacancies') }}">Вакансии</a>
+            <a class="header-grid-link" href="{{ route('vacancies') }}">Вакансии</a>
           </dd>
         </div>
 
@@ -36,6 +36,9 @@
           <dt>{{ $footer['contacts-heading'] }}</dt>
           <dd>
             <a data-table="texts" data-caption="phone" class="header-grid-link" href="tel:{{ str_replace(' ', '', strip_tags($header['phone'])) }}">{!! $header['phone'] !!}</a>
+          </dd>
+          <dd>
+            <a class="header-grid-link" href="tel:+992988992211">+992 988 99 22 11</a>
           </dd>
           {{-- <dd>
             <a data-table="texts" data-caption="email" class="header-grid-link" href="mailto:{{str_replace(' ', '', strip_tags($header['email']))}}">{!! $header['email'] !!}</a>
