@@ -129,3 +129,15 @@
     <button data-action="delete" class="actions-action" type="button" tabindex="-1">Удалить этот проект</button>
   </li>
 </ul>
+
+<ul data-list="vacancy-actions" class="actions-list">
+  <li class="actions-item">
+    <a data-action="edit" class="actions-action" href="{{ route('admin.vacancies.edit') }}" tabindex="-1">Редактировать</a>
+  </li>
+  <li class="actions-item">
+    <a class="actions-action" href="{{ route('admin.vacancies.create') }}" tabindex="-1">Добавить новую вакансию</a>
+  </li>
+  <li class="actions-item">
+    <button data-action="delete" class="actions-action" type="button" tabindex="-1">Удалить вакансию</button>
+  </li>
+</ul>

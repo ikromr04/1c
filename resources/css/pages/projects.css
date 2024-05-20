@@ -39,6 +39,52 @@
   overflow: hidden;
 }
 
+.project-item--vacancy {
+  padding: 24px 32px;
+  padding-bottom: 0;
+  grid-template-columns: 1fr 176px;
+  grid-template-rows: 1fr auto;
+
+}
+
+.project-item--vacancy .project-description-wrapper {
+  pointer-events: none;
+}
+
+.project-item--vacancy .project-btn-wrapper {
+  grid-column: 2 / 3;
+}
+
+.project-item--vacancy .project-content-wrapper {
+  grid-column: 1 / 2;
+}
+
+.project-item--form {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 24px;
+}
+
+.project-item--add-vacancy {
+  height: 64px;
+  font-size: 18px;
+  color: rgba(77, 77, 77, 0.5);
+  text-align: center;
+  position: relative;
+}
+
+.project-item--add-vacancy a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .project-item h3 b {
   font-weight: 600;
 }
@@ -276,3 +322,11 @@
 
 
 /* <<= adaptive */
+
+
+.project-description-wrapper .simditor-body {
+  max-height: 200px !important;
+  min-height: 200px !important;
+  overflow-y: scroll;
+}
+

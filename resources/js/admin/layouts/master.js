@@ -53,6 +53,10 @@ function showActions(e) {
       switchProjectActions(e);
       break;
 
+    case 'vacancy':
+      switchVacancyActions(e);
+      break;
+
     case 'success-steps':
       switchSuccessStepsActions(e);
       break;
@@ -120,7 +124,7 @@ function switchTextsActions(e) {
     }
   }
 }
-const textToHTML = function(str) {
+const textToHTML = function (str) {
 
   // check for DOMParser support
   if (support) {
@@ -233,28 +237,28 @@ function switchAdvantagesActions(e) {
   //* when create button is clicked switch to advantage's create form
   const createBtn = actions.querySelector('[data-action="create"]');
   createBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="create-advantage"]');
-      form.classList.remove('hidden');
-    }
-    //* when update button is clicked switch to advantage's update form
+    // show form
+    const form = body.querySelector('[data-form="create-advantage"]');
+    form.classList.remove('hidden');
+  }
+  //* when update button is clicked switch to advantage's update form
   const updateBtn = actions.querySelector('[data-action="update"]');
   updateBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="update-advantage"]');
-      form.classList.remove('hidden');
-      // fill form
-      const input = form.querySelector('[name="id"]'),
-        textarea = form.querySelector('[name="content"]');
+    // show form
+    const form = body.querySelector('[data-form="update-advantage"]');
+    form.classList.remove('hidden');
+    // fill form
+    const input = form.querySelector('[name="id"]'),
+      textarea = form.querySelector('[name="content"]');
 
-      input.value = e.target.dataset.advantageId;
-      textarea.value = e.target.textContent;
-      // dynamically preview result
-      textarea.oninput = () => {
-        e.target.textContent = textarea.value;
-      }
+    input.value = e.target.dataset.advantageId;
+    textarea.value = e.target.textContent;
+    // dynamically preview result
+    textarea.oninput = () => {
+      e.target.textContent = textarea.value;
     }
-    //* when delete button is clicked switch to advantage's delete form
+  }
+  //* when delete button is clicked switch to advantage's delete form
   const deleteBtn = actions.querySelector('[data-action="delete"]');
   deleteBtn.onclick = () => {
     // show form
@@ -275,94 +279,94 @@ function switchCompaniesActions(e) {
   //* when create button is clicked switch to company's create form
   const createBtn = actions.querySelector('[data-action="create"]');
   createBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="create-company"]');
-      form.classList.remove('hidden');
-      // dynamically preview result
-      const logoPreview = form.querySelector('.company-logo-preview'),
-        titlePreview = form.querySelector('.company-title'),
-        categoryPreview = form.querySelector('.company-category'),
-        inputLogo = form.querySelector('[name="logo"]'),
-        inputTitle = form.querySelector('[name="title"]'),
-        inputCategory = form.querySelector('[name="category"]');
+    // show form
+    const form = body.querySelector('[data-form="create-company"]');
+    form.classList.remove('hidden');
+    // dynamically preview result
+    const logoPreview = form.querySelector('.company-logo-preview'),
+      titlePreview = form.querySelector('.company-title'),
+      categoryPreview = form.querySelector('.company-category'),
+      inputLogo = form.querySelector('[name="logo"]'),
+      inputTitle = form.querySelector('[name="title"]'),
+      inputCategory = form.querySelector('[name="category"]');
 
-      inputLogo.oninput = () => {
+    inputLogo.oninput = () => {
 
-        const file = new FormData();
-        file.append('file', inputLogo.files[0]);
+      const file = new FormData();
+      file.append('file', inputLogo.files[0]);
 
-        $.ajax({
-          type: 'post',
-          enctype: 'multipart/form-data',
-          url: '/img-tempstore',
-          data: file,
-          processData: false,
-          contentType: false,
-          cache: false,
-          timeout: 600000,
+      $.ajax({
+        type: 'post',
+        enctype: 'multipart/form-data',
+        url: '/img-tempstore',
+        data: file,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
 
-          success: function success(response) {
-            logoPreview.style.backgroundImage = `url(../img/tempstore/${response})`;
-          }
-        });
-      }
-      inputTitle.oninput = () => {
-        titlePreview.textContent = inputTitle.value;
-      }
-      inputCategory.oninput = () => {
-        categoryPreview.textContent = inputCategory.value;
-      }
+        success: function success(response) {
+          logoPreview.style.backgroundImage = `url(../img/tempstore/${response})`;
+        }
+      });
     }
-    //* when update button is clicked switch to company's update form
+    inputTitle.oninput = () => {
+      titlePreview.textContent = inputTitle.value;
+    }
+    inputCategory.oninput = () => {
+      categoryPreview.textContent = inputCategory.value;
+    }
+  }
+  //* when update button is clicked switch to company's update form
   const updateBtn = actions.querySelector('[data-action="update"]');
   updateBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="update-company"]');
+    // show form
+    const form = body.querySelector('[data-form="update-company"]');
 
-      form.classList.remove('hidden');
-      // fill form
-      const logoPreview = e.target.querySelector('img'),
-        titlePreview = e.target.querySelector('h3'),
-        categoryPreview = e.target.querySelector('p'),
-        inputID = form.querySelector('[name="id"]'),
-        inputLogo = form.querySelector('[name="logo"]'),
-        inputSite = form.querySelector('[name="site"]'),
-        inputTitle = form.querySelector('[name="title"]'),
-        inputCategory = form.querySelector('[name="category"]');
+    form.classList.remove('hidden');
+    // fill form
+    const logoPreview = e.target.querySelector('img'),
+      titlePreview = e.target.querySelector('h3'),
+      categoryPreview = e.target.querySelector('p'),
+      inputID = form.querySelector('[name="id"]'),
+      inputLogo = form.querySelector('[name="logo"]'),
+      inputSite = form.querySelector('[name="site"]'),
+      inputTitle = form.querySelector('[name="title"]'),
+      inputCategory = form.querySelector('[name="category"]');
 
-      inputID.value = e.target.dataset.id;
-      inputSite.value = e.target.dataset.site;
-      inputTitle.value = e.target.dataset.title;
-      inputCategory.value = e.target.dataset.category;
-      // dynamically preview result
-      inputLogo.oninput = () => {
+    inputID.value = e.target.dataset.id;
+    inputSite.value = e.target.dataset.site;
+    inputTitle.value = e.target.dataset.title;
+    inputCategory.value = e.target.dataset.category;
+    // dynamically preview result
+    inputLogo.oninput = () => {
 
-        const file = new FormData();
-        file.append('file', inputLogo.files[0]);
+      const file = new FormData();
+      file.append('file', inputLogo.files[0]);
 
-        $.ajax({
-          type: 'post',
-          enctype: 'multipart/form-data',
-          url: '/img-tempstore',
-          data: file,
-          processData: false,
-          contentType: false,
-          cache: false,
-          timeout: 600000,
+      $.ajax({
+        type: 'post',
+        enctype: 'multipart/form-data',
+        url: '/img-tempstore',
+        data: file,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
 
-          success: function success(response) {
-            logoPreview.src = e.target.dataset.src + '/tempstore/' + response;
-          }
-        });
-      }
-      inputTitle.oninput = () => {
-        titlePreview.textContent = inputTitle.value;
-      }
-      inputCategory.oninput = () => {
-        categoryPreview.textContent = inputCategory.value;
-      }
+        success: function success(response) {
+          logoPreview.src = e.target.dataset.src + '/tempstore/' + response;
+        }
+      });
     }
-    //* when delete button is clicked switch to advantage's delete form
+    inputTitle.oninput = () => {
+      titlePreview.textContent = inputTitle.value;
+    }
+    inputCategory.oninput = () => {
+      categoryPreview.textContent = inputCategory.value;
+    }
+  }
+  //* when delete button is clicked switch to advantage's delete form
   const deleteBtn = actions.querySelector('[data-action="delete"]');
   deleteBtn.onclick = () => {
     // show form
@@ -420,6 +424,31 @@ function switchProjectActions(e) {
   editLink.href += `?id=${e.target.dataset.id}`;
 }
 
+function switchVacancyActions(e) {
+  // show project's actions' list
+  let actions = body.querySelector('[data-list="vacancy-actions"]');
+
+  actions.style.left = e.pageX + 8 + 'px';
+  actions.style.top = e.pageY + 8 + 'px';
+  // when delete button is clicked switch to project's delete form
+  let deleteBtn = actions.querySelector('[data-action="delete"]');
+
+  deleteBtn.onclick = () => {
+    // show form
+    let form = body.querySelector('[data-form="delete-vacancy"]');
+
+    form.classList.remove('hidden');
+    // fill form
+    const inputID = form.querySelector('[name="id"]');
+
+    inputID.value = e.target.dataset.id;
+  }
+
+  // give project's id to edit link
+  let editLink = actions.querySelector('[data-action="edit"]');
+  editLink.href += `?id=${e.target.dataset.id}`;
+}
+
 function switchSuccessStepsActions(e) {
   // show success-steps' actionsList
   const actions = body.querySelector('[data-list="success-steps-actions"]');
@@ -429,28 +458,28 @@ function switchSuccessStepsActions(e) {
   //* when create button is clicked switch to success-steps' create form
   const createBtn = actions.querySelector('[data-action="create"]');
   createBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="create-success-step"]');
-      form.classList.remove('hidden');
-    }
-    //* when update button is clicked switch to success-steps' update form
+    // show form
+    const form = body.querySelector('[data-form="create-success-step"]');
+    form.classList.remove('hidden');
+  }
+  //* when update button is clicked switch to success-steps' update form
   const updateBtn = actions.querySelector('[data-action="update"]');
   updateBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="update-success-step"]');
-      form.classList.remove('hidden');
-      // fill form
-      const inputID = form.querySelector('[name="id"]'),
-        text = form.querySelector('[name="text"]');
+    // show form
+    const form = body.querySelector('[data-form="update-success-step"]');
+    form.classList.remove('hidden');
+    // fill form
+    const inputID = form.querySelector('[name="id"]'),
+      text = form.querySelector('[name="text"]');
 
-      inputID.value = e.target.dataset.id;
-      text.value = e.target.textContent;
-      // dynamically preview result
-      text.oninput = () => {
-        e.target.textContent = text.value;
-      }
+    inputID.value = e.target.dataset.id;
+    text.value = e.target.textContent;
+    // dynamically preview result
+    text.oninput = () => {
+      e.target.textContent = text.value;
     }
-    //* when delete button is clicked switch to success-steps' delete form
+  }
+  //* when delete button is clicked switch to success-steps' delete form
   const deleteBtn = actions.querySelector('[data-action="delete"]');
   deleteBtn.onclick = () => {
     // show form
@@ -471,92 +500,92 @@ function switchMembersActions(e) {
   //* when create button is clicked switch to members' create form
   const createBtn = actions.querySelector('[data-action="create"]');
   createBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="create-member"]');
-      form.classList.remove('hidden');
-      // dynamically preview result
-      const avatarPreview = form.querySelector('.member-avatar-preview'),
-        namePreview = form.querySelector('.member-name'),
-        positionPreview = form.querySelector('.member-position'),
-        inputAvatar = form.querySelector('[name="avatar"]'),
-        inputName = form.querySelector('[name="name"]'),
-        inputPosition = form.querySelector('[name="position"]');
+    // show form
+    const form = body.querySelector('[data-form="create-member"]');
+    form.classList.remove('hidden');
+    // dynamically preview result
+    const avatarPreview = form.querySelector('.member-avatar-preview'),
+      namePreview = form.querySelector('.member-name'),
+      positionPreview = form.querySelector('.member-position'),
+      inputAvatar = form.querySelector('[name="avatar"]'),
+      inputName = form.querySelector('[name="name"]'),
+      inputPosition = form.querySelector('[name="position"]');
 
-      inputAvatar.oninput = () => {
+    inputAvatar.oninput = () => {
 
-        const file = new FormData();
-        file.append('file', inputAvatar.files[0]);
+      const file = new FormData();
+      file.append('file', inputAvatar.files[0]);
 
-        $.ajax({
-          type: 'post',
-          enctype: 'multipart/form-data',
-          url: '/img-tempstore',
-          data: file,
-          processData: false,
-          contentType: false,
-          cache: false,
-          timeout: 600000,
+      $.ajax({
+        type: 'post',
+        enctype: 'multipart/form-data',
+        url: '/img-tempstore',
+        data: file,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
 
-          success: function success(response) {
-            avatarPreview.style.backgroundImage = `url(../img/tempstore/${response})`;
-          }
-        });
-      }
-      inputName.oninput = () => {
-        namePreview.textContent = inputName.value;
-      }
-      inputPosition.oninput = () => {
-        positionPreview.textContent = inputPosition.value;
-      }
+        success: function success(response) {
+          avatarPreview.style.backgroundImage = `url(../img/tempstore/${response})`;
+        }
+      });
     }
-    //* when update button is clicked switch to members' update form
+    inputName.oninput = () => {
+      namePreview.textContent = inputName.value;
+    }
+    inputPosition.oninput = () => {
+      positionPreview.textContent = inputPosition.value;
+    }
+  }
+  //* when update button is clicked switch to members' update form
   const updateBtn = actions.querySelector('[data-action="update"]');
   updateBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="update-member"]');
+    // show form
+    const form = body.querySelector('[data-form="update-member"]');
 
-      form.classList.remove('hidden');
-      // fill form
-      const avatarPreview = e.target.querySelector('img'),
-        namePreview = e.target.querySelector('h3'),
-        positionPreview = e.target.querySelector('p'),
-        inputID = form.querySelector('[name="id"]'),
-        inputAvatar = form.querySelector('[name="avatar"]'),
-        inputName = form.querySelector('[name="name"]'),
-        inputPosition = form.querySelector('[name="position"]');
+    form.classList.remove('hidden');
+    // fill form
+    const avatarPreview = e.target.querySelector('img'),
+      namePreview = e.target.querySelector('h3'),
+      positionPreview = e.target.querySelector('p'),
+      inputID = form.querySelector('[name="id"]'),
+      inputAvatar = form.querySelector('[name="avatar"]'),
+      inputName = form.querySelector('[name="name"]'),
+      inputPosition = form.querySelector('[name="position"]');
 
-      inputID.value = e.target.dataset.id;
-      inputName.value = e.target.dataset.name;
-      inputPosition.value = e.target.dataset.position;
-      // dynamically preview result
-      inputAvatar.oninput = () => {
+    inputID.value = e.target.dataset.id;
+    inputName.value = e.target.dataset.name;
+    inputPosition.value = e.target.dataset.position;
+    // dynamically preview result
+    inputAvatar.oninput = () => {
 
-        const file = new FormData();
-        file.append('file', inputAvatar.files[0]);
+      const file = new FormData();
+      file.append('file', inputAvatar.files[0]);
 
-        $.ajax({
-          type: 'post',
-          enctype: 'multipart/form-data',
-          url: '/img-tempstore',
-          data: file,
-          processData: false,
-          contentType: false,
-          cache: false,
-          timeout: 600000,
+      $.ajax({
+        type: 'post',
+        enctype: 'multipart/form-data',
+        url: '/img-tempstore',
+        data: file,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
 
-          success: function success(response) {
-            avatarPreview.src = e.target.dataset.src + '/tempstore/' + response;
-          }
-        });
-      }
-      inputName.oninput = () => {
-        namePreview.textContent = inputName.value;
-      }
-      inputPosition.oninput = () => {
-        positionPreview.textContent = inputPosition.value;
-      }
+        success: function success(response) {
+          avatarPreview.src = e.target.dataset.src + '/tempstore/' + response;
+        }
+      });
     }
-    //* when delete button is clicked switch to members' delete form
+    inputName.oninput = () => {
+      namePreview.textContent = inputName.value;
+    }
+    inputPosition.oninput = () => {
+      positionPreview.textContent = inputPosition.value;
+    }
+  }
+  //* when delete button is clicked switch to members' delete form
   const deleteBtn = actions.querySelector('[data-action="delete"]');
   deleteBtn.onclick = () => {
     // show form
@@ -577,75 +606,75 @@ function switchCertificatesActions(e) {
   //* when create button is clicked switch to certificates' create form
   const createBtn = actions.querySelector('[data-action="create"]');
   createBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="create-certificate"]');
-      form.classList.remove('hidden');
-      // dynamically preview result
-      const imgWrap = form.querySelector('.certificate-preview'),
-        imgPreview = imgWrap.querySelector('img'),
-        inputImg = form.querySelector('[name="img"]');
+    // show form
+    const form = body.querySelector('[data-form="create-certificate"]');
+    form.classList.remove('hidden');
+    // dynamically preview result
+    const imgWrap = form.querySelector('.certificate-preview'),
+      imgPreview = imgWrap.querySelector('img'),
+      inputImg = form.querySelector('[name="img"]');
 
-      inputImg.oninput = () => {
+    inputImg.oninput = () => {
 
-        const file = new FormData();
-        file.append('file', inputImg.files[0]);
+      const file = new FormData();
+      file.append('file', inputImg.files[0]);
 
-        imgWrap.classList.add('loading');
+      imgWrap.classList.add('loading');
 
-        $.ajax({
-          type: 'post',
-          enctype: 'multipart/form-data',
-          url: '/img-tempstore',
-          data: file,
-          processData: false,
-          contentType: false,
-          cache: false,
-          timeout: 600000,
+      $.ajax({
+        type: 'post',
+        enctype: 'multipart/form-data',
+        url: '/img-tempstore',
+        data: file,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
 
-          success: function success(response) {
-            imgPreview.src = e.target.dataset.src + '/tempstore/' + response;
-            imgWrap.classList.remove('loading');
-          }
-        });
-      }
+        success: function success(response) {
+          imgPreview.src = e.target.dataset.src + '/tempstore/' + response;
+          imgWrap.classList.remove('loading');
+        }
+      });
     }
-    //* when update button is clicked switch to certificates' update form
+  }
+  //* when update button is clicked switch to certificates' update form
   const updateBtn = actions.querySelector('[data-action="update"]');
   updateBtn.onclick = () => {
-      // show form
-      const form = body.querySelector('[data-form="update-certificate"]');
+    // show form
+    const form = body.querySelector('[data-form="update-certificate"]');
 
-      form.classList.remove('hidden');
-      // fill form
-      const imgPreview = e.target.querySelector('img'),
-        inputID = form.querySelector('[name="id"]'),
-        inputImg = form.querySelector('[name="img"]');
+    form.classList.remove('hidden');
+    // fill form
+    const imgPreview = e.target.querySelector('img'),
+      inputID = form.querySelector('[name="id"]'),
+      inputImg = form.querySelector('[name="img"]');
 
-      inputID.value = e.target.dataset.id;
-      // dynamically preview result
-      inputImg.oninput = () => {
+    inputID.value = e.target.dataset.id;
+    // dynamically preview result
+    inputImg.oninput = () => {
 
-        const file = new FormData();
-        file.append('file', inputImg.files[0]);
+      const file = new FormData();
+      file.append('file', inputImg.files[0]);
 
-        $.ajax({
-          type: 'post',
-          enctype: 'multipart/form-data',
-          url: '/img-tempstore',
-          data: file,
-          processData: false,
-          contentType: false,
-          cache: false,
-          timeout: 600000,
+      $.ajax({
+        type: 'post',
+        enctype: 'multipart/form-data',
+        url: '/img-tempstore',
+        data: file,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
 
-          success: function success(response) {
-            imgPreview.style.objectFit = 'fill';
-            imgPreview.src = e.target.dataset.src + '/tempstore/' + response;
-          }
-        });
-      }
+        success: function success(response) {
+          imgPreview.style.objectFit = 'fill';
+          imgPreview.src = e.target.dataset.src + '/tempstore/' + response;
+        }
+      });
     }
-    //* when delete button is clicked switch to certificates' delete form
+  }
+  //* when delete button is clicked switch to certificates' delete form
   const deleteBtn = actions.querySelector('[data-action="delete"]');
   deleteBtn.onclick = () => {
     // show form
@@ -884,6 +913,25 @@ window.deleteCompany = (event) => {
 }
 
 window.deleteProject = (event) => {
+  event.preventDefault();
+
+  const form = event.target.closest('form');
+
+  $.ajax({
+    type: form.method,
+    url: form.action,
+    data: {
+      id: form.querySelector('[name="id"]').value,
+    },
+    success: function success(response) {
+      if (response == 'success') {
+        location.reload();
+      }
+    }
+  });
+}
+
+window.deleteVacancy = (event) => {
   event.preventDefault();
 
   const form = event.target.closest('form');

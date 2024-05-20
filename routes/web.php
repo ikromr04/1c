@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\PublicationsController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\VacancyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +46,9 @@ Route::post('/feedback', [MainController::class, 'feedback'])->name('feedback');
 
 Route::post('/auth/check', [MainController::class, 'check'])->name('auth.check');
 Route::get('/logout', [MainController::class, 'logout'])->name('logout');
+Route::get('/vacancies', [VacancyController::class, 'index'])->name('vacancies');
+
+Route::post('/vacancies/send', [VacancyController::class, 'send'])->name('vacancies.send');
 //! <<= main routes
 
 // =>> admin panel routes
@@ -64,6 +68,10 @@ Route::group(['middleware' => ['AuthCheck']], function () {
   Route::get('/admin/projects', [ProjectsController::class, 'indexAdmin'])->name('admin.projects');
   Route::get('/admin/projects/create', [ProjectsController::class, 'createProject'])->name('admin.projects.create');
   Route::get('/admin/projects/update', [ProjectsController::class, 'editProject'])->name('admin.projects.edit');
+
+  Route::get('/admin/vacancies', [VacancyController::class, 'indexAdmin'])->name('admin.vacancies');
+  Route::get('/admin/vacancies/create', [VacancyController::class, 'createVacancy'])->name('admin.vacancies.create');
+  Route::get('/admin/vacancies/update', [VacancyController::class, 'editVacancy'])->name('admin.vacancies.edit');
 
   Route::get('/admin/services', [ServicesController::class, 'adminServices'])->name('admin.services');
   Route::post('/services/change-file', [ServicesController::class, 'changeFile'])->name('services.change.file');
@@ -90,6 +98,10 @@ Route::group(['middleware' => ['AuthCheck']], function () {
   Route::post('/projects/store', [ProjectsController::class, 'storeProject'])->name('projects.store');
   Route::post('/projects/update', [ProjectsController::class, 'updateProject'])->name('projects.update');
   Route::post('/projects/delete', [ProjectsController::class, 'deleteProject'])->name('projects.delete');
+
+  Route::post('/vacancies/store', [VacancyController::class, 'storeVacancy'])->name('vacancies.store');
+  Route::post('/vacancies/update', [VacancyController::class, 'updateVacancy'])->name('vacancies.update');
+  Route::post('/vacancies/delete', [VacancyController::class, 'deleteVacancy'])->name('vacancies.delete');
 
   Route::post('/success-steps', [AdminController::class, 'successSteps'])->name('success.steps');
   Route::post('/members', [AdminController::class, 'members'])->name('members');

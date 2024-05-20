@@ -45,7 +45,7 @@ class MainController extends Controller
     if (Mail::failures()) {
       return 'fail';
     } else {
-      Mail::to('diis@orienpharm.tj')->send(new FeedbackMail($details));
+      // Mail::to('diis@orienpharm.tj')->send(new FeedbackMail($details));
       Mail::to('info@kit.tj')->send(new FeedbackMail($details));
       return 'success';
     }

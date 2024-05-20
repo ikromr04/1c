@@ -44,7 +44,7 @@
     </ul>
     {{-- background decorations <= --}}
     @include('admin.layouts.header')
-    
+
     @yield('content')
 
     @include('admin.layouts.footer')
@@ -54,7 +54,7 @@
     @include('admin.layouts.actions')
 
     <a class="logout-link" href="{{route('logout')}}">Выйти</a>
-    
+
     <!-- JQuery 3.6  -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     {{-- Owl carousel --}}
