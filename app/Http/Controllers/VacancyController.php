@@ -82,7 +82,7 @@ class VacancyController extends Controller
     Mail::send('emails.cv', [
       'title' => $request->title,
     ], function ($message) use ($file) {
-      $message->to('info@kit.tj');
+      $message->to('ikromr04@gmail.com');
       $message->subject('Отклик на вакансию');
 
       $message->attach(
@@ -94,7 +94,7 @@ class VacancyController extends Controller
       );
     });
 
-    return back();
+    return back()->with('success', 'Ваше резюме успешно отправлена');;
   }
 
   public function deleteVacancy(Request $request)

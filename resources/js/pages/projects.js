@@ -5,11 +5,11 @@ window.toggleProjectContent = function(projectItem) {
   if (projectItem.classList.contains('content-shown')) {
     contentWrapper.style.height = contentWrapper.scrollHeight + 'px';
 
-    projectItem.addEventListener('mouseleave', () => {
-      projectItem.classList.add('content-hidden');
-      projectItem.classList.remove('content-shown');
-      contentWrapper.style.height = 0;
-    });
+    // projectItem.addEventListener('mouseleave', () => {
+    //   projectItem.classList.add('content-hidden');
+    //   projectItem.classList.remove('content-shown');
+    //   contentWrapper.style.height = 0;
+    // });
   }
   if (projectItem.classList.contains('content-hidden')) {
     contentWrapper.style.height = 0;

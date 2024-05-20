@@ -35,8 +35,22 @@
                   <label class="button" style="max-width: max-content;
                   background: radial-gradient(269.69% 100% at 50% 100%, rgba(230, 36, 43, 0.2) 0%, rgba(239, 105, 27, 0.2) 37.5%, rgba(255, 221, 0, 0.2) 100%), linear-gradient(0deg, #FFDD00, #FFDD00), #FFFFFF;
                   height: 40px; margin-bottom: 32px">
+                    <div class="lds-spinner" style="transform: scale(0.8)">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
                     Добавить резюме
-                    <input class="visually-hidden" type="file" name="cv" onchange="this.closest('form').submit()">
+                    <input class="visually-hidden" type="file" name="cv" onchange="window.sendCV(this)">
                   </label>
                 </form>
               </div>
@@ -45,10 +59,36 @@
               </div>
             </li>
           @endforeach
-          <li class="project-item project-item--add-vacancy">
+          {{-- <li class="project-item project-item--add-vacancy">
             <a href="{{ route('admin.vacancies.create') }}">+ Добавить</a>
-          </li>
+          </li> --}}
         </ul>
+
+        <p style="margin-top: 32px; margin-bottom: 16px;">Если Вы не нашли подходящую вакансию, прикрепите своё резюме для Резерва:</p>
+        <form action="{{ route('vacancies.send') }}" method="post" enctype="multipart/form-data">
+          @csrf
+          <input type="hidden" name="title" value="title">
+          <label class="button" style="max-width: max-content;
+          background: radial-gradient(269.69% 100% at 50% 100%, rgba(230, 36, 43, 0.2) 0%, rgba(239, 105, 27, 0.2) 37.5%, rgba(255, 221, 0, 0.2) 100%), linear-gradient(0deg, #FFDD00, #FFDD00), #FFFFFF;
+          height: 40px; margin-bottom: 32px">
+            <div class="lds-spinner" style="transform: scale(0.8)">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            Прикрепить резюме
+            <input class="visually-hidden" type="file" name="cv" onchange="window.sendCV(this)">
+          </label>
+        </form>
       </div>
     </section>
   </main>
