@@ -82,7 +82,7 @@ class VacancyController extends Controller
     Mail::send('emails.cv', [
       'title' => $request->title,
     ], function ($message) use ($file) {
-      $message->to('ikromr04@gmail.com');
+      $message->to('info@kit.tj');
       $message->subject('Отклик на вакансию');
 
       $message->attach(

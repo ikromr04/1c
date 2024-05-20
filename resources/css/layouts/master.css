@@ -436,3 +436,24 @@ svg {
 
 
 /*! adaptive <= */
+
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 20px;
+  z-index: 9;
+  transform: translateY(0%);
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.modal--fail {
+  background-color: #ff7070;
+}
+
+.modal--success {
+  background-color: #72b54e;
+}
