@@ -96,4 +96,17 @@ class VacancyController extends Controller
 
     return back();
   }
+
+  public function deleteVacancy(Request $request)
+  {
+    $vacancy = Vacancy::find($request->id);
+    $vacancy->trashed = true;
+
+    try {
+      $vacancy->save();
+      return 'success';
+    } catch (\Throwable $th) {
+      return $th;
+    }
+  }
 }
