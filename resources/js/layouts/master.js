@@ -15,3 +15,13 @@ window.sendCV = (input) => {
   input.closest('label').classList.add('loading');
   input.closest('form').submit();
 }
+
+const html = document.querySelector('html'),
+  modals = html.querySelectorAll('.modal');
+
+//! hide modals start
+html.addEventListener('click', e => {
+  modals.forEach(modal => {
+    modal.classList.add('hidden');
+  });
+});

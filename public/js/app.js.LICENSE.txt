@@ -1,3 +1,5 @@
 //! <<= ajax request setup
 
 //! =>> ajax request setup
+
+//! hide modals start

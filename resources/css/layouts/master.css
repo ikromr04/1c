@@ -450,6 +450,11 @@ svg {
   transition: 0.3s;
 }
 
+.modal.hidden {
+  z-index: -1;
+  transform: translateY(-100%);
+}
+
 .modal--fail {
   background-color: #ff7070;
 }
