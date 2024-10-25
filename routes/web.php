@@ -43,6 +43,7 @@ Route::get('/its', [ITSController::class, 'its'])->name('its');
 
 //! =>> main routes
 Route::post('/feedback', [MainController::class, 'feedback'])->name('feedback');
+Route::post('/test-drive', [MainController::class, 'testDrive']);
 
 Route::post('/auth/check', [MainController::class, 'check'])->name('auth.check');
 Route::get('/logout', [MainController::class, 'logout'])->name('logout');

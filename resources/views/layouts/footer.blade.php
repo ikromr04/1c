@@ -57,7 +57,7 @@
     </nav>
 
     <div class="footer-bottom">
-      <img src="{{ asset('img/orien-logo.png') }}" alt="orien logotype">
+      <img src="{{ asset('img/kit-logo.png') }}" alt="Kit logotype" width="90">
       <div>{{ $footer['copyright'] }}</div>
       <button class="scroll-top-btn" id="top" type="button">
         <span class="scroll-top-text">{{ $footer['scroll-top'] }}</span>

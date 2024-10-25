@@ -6,8 +6,8 @@ use App\Helpers\Helper;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\Project;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,9 +30,7 @@ class AppServiceProvider extends ServiceProvider
   public function boot()
   {
     Schema::defaultStringLength(191);
-
     Paginator::useBootstrap();
-
 
     view()->composer(['layouts.master', 'admin.layouts.master', 'pages.home', 'admin.pages.home'], function ($view) {
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Mail\FeedbackMail;
+use App\Mail\TestDrive;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -47,6 +48,26 @@ class MainController extends Controller
     } else {
       // Mail::to('diis@orienpharm.tj')->send(new FeedbackMail($details));
       Mail::to('info@kit.tj')->send(new FeedbackMail($details));
+      return 'success';
+    }
+  }
+
+  public function testDrive(Request $request)
+  {
+    $details = [
+      'model' => $request->model,
+      'dealer' => $request->dealer,
+      'name' => $request->name,
+      'tel' => $request->tel,
+    ];
+
+    return $details;
+
+    if (Mail::failures()) {
+      return 'fail';
+    } else {
+      // Mail::to('diis@orienpharm.tj')->send(new FeedbackMail($details));
+      Mail::to('ikromr04@gmail.com')->send(new TestDrive($details));
       return 'success';
     }
   }
