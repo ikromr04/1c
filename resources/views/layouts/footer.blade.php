@@ -47,7 +47,7 @@
             <a class="header-grid-link" href="mailto:{{ str_replace(' ', '', $header['email-2']) }}">{{ $header['email-2'] }}</a>
           </dd>
           <dd>
-            <a class="header-grid-link no-white-space" target="_blank" href="http://maps.google.com/?q={{ str_replace(' ', '', $header['address']) }}">{{ $header['address'] }}</a>
+            <a class="header-grid-link no-white-space" target="_blank" href="https://www.google.com/maps/place/%D1%83%D0%BB.+%D0%A8%D0%B0%D0%BC%D1%81%D0%B8+2,+%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5,+%D0%A2%D0%B0%D0%B4%D0%B6%D0%B8%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD/@38.5781361,68.7500605,280m/data=!3m1!1e3!4m6!3m5!1s0x38b5d22600351db9:0x7ece843d97f3edb4!8m2!3d38.57792!4d68.7511861!16s%2Fg%2F11j95rwwjq?entry=ttu&g_ep=EgoyMDI0MTAyMi4wIKXMDSoASAFQAw%3D%3D">{{ $header['address'] }}</a>
           </dd>
         </div>
       </dl>
