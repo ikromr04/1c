@@ -13,7 +13,7 @@
           <a data-table="texts" data-caption="phone" class="header-grid-link" href="tel:{{ str_replace(' ', '', $header['phone']) }}">{{ $header['phone'] }}</a>
         </li>
         <li class="header-grid-item">
-          <a data-table="texts" data-caption="address" class="header-grid-link" target="_blank" href="http://maps.google.com/?q={{ str_replace(' ', '', $header['address']) }}">{{ $header['address'] }}</a>
+          <a data-table="texts" data-caption="address" class="header-grid-link" target="_blank" href="https://www.google.com/maps/place/Ulitsa+Shamsi+2,+Dushanbe/@38.5781361,68.7500605,441m/data=!3m1!1e3!4m6!3m5!1s0x38b5d22600351db9:0x7ece843d97f3edb4!8m2!3d38.57792!4d68.7511861!16s%2Fg%2F11j95rwwjq?entry=ttu&g_ep=EgoyMDI0MTAyMi4wIKXMDSoASAFQAw%3D%3D">{{ $header['address'] }}</a>
         </li>
       </ul>
 
